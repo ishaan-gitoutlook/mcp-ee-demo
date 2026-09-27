@@ -58,8 +58,6 @@ def test_calculates_electrical_power() -> None:
     assert result["unit"] == "W"
 
 
-
-
 def test_calculates_coulombs_law() -> None:
     result = calculate_coulombs_law(1e-6, 1e-6, 1.0)
     assert round(result["force"], 4) == 0.0090

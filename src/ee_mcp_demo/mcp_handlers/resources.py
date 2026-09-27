@@ -22,8 +22,10 @@ def explain_kirchhoffs_laws() -> str:
     logger.info("Resource requested: kirchhoffs-laws")
     return "\n".join(
         [
-            "Kirchhoff's Current Law (KCL): The total current entering a junction equals the total current leaving it.",
-            "Kirchhoff's Voltage Law (KVL): The directed sum of the potential differences (voltages) around any closed loop is zero.",
+            "Kirchhoff's Current Law (KCL): The total current entering a "
+            "junction equals the total current leaving it.",
+            "Kirchhoff's Voltage Law (KVL): The directed sum of the potential "
+            "differences (voltages) around any closed loop is zero.",
             "These laws are fundamental for analyzing complex electrical circuits.",
         ]
     )
