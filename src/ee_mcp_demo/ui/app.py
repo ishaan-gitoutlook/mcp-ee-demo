@@ -49,9 +49,9 @@ if page == "Ohm's Law":
 
     if st.button("Calculate"):
         try:
-            result = calculate_ohms_law(voltage=v_val, current=i_val, resistance=r_val)
+            ohm_result = calculate_ohms_law(voltage=v_val, current=i_val, resistance=r_val)
             st.success("Result:")
-            st.json(result)
+            st.json(ohm_result)
         except (MissingParameterError, InvalidParameterError) as e:
             st.error(str(e))
 
@@ -63,9 +63,9 @@ elif page == "Series Resistance":
     if st.button("Calculate"):
         try:
             r_list = [float(x.strip()) for x in r_input.split(",") if x.strip()]
-            result = calculate_series_resistance(r_list)
+            series_res = calculate_series_resistance(r_list)
             st.success("Result:")
-            st.json(result)
+            st.json(series_res)
         except ValueError:
             st.error("Please enter valid numbers separated by commas.")
         except Exception as e:
@@ -79,9 +79,9 @@ elif page == "Parallel Resistance":
     if st.button("Calculate"):
         try:
             r_list = [float(x.strip()) for x in r_input.split(",") if x.strip()]
-            result = calculate_parallel_resistance(r_list)
+            parallel_res = calculate_parallel_resistance(r_list)
             st.success("Result:")
-            st.json(result)
+            st.json(parallel_res)
         except ValueError:
             st.error("Please enter valid numbers separated by commas.")
         except Exception as e:
@@ -91,23 +91,20 @@ elif page == "Electrical Power":
     st.header("Electrical Power Calculator")
     st.markdown("`P = V × I`")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
-        p = st.number_input("Power (W)", value=0.0, step=0.1)
-    with col2:
         v = st.number_input("Voltage (V)", value=0.0, step=0.1)
-    with col3:
+    with col2:
         i = st.number_input("Current (A)", value=0.0, step=0.1)
 
-    p_val = p if p != 0.0 else None
     v_val = v if v != 0.0 else None
     i_val = i if i != 0.0 else None
 
     if st.button("Calculate"):
         try:
-            result = calculate_electrical_power(power=p_val, voltage=v_val, current=i_val)
+            power_res = calculate_electrical_power(voltage=v_val, current=i_val)
             st.success("Result:")
-            st.json(result)
+            st.json(power_res)
         except Exception as e:
             st.error(str(e))
 
@@ -115,26 +112,19 @@ elif page == "Coulomb's Law":
     st.header("Coulomb's Law Calculator")
     st.markdown("`F = k × (|q1 × q2|) / r²`")
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
     with col1:
-        f = st.number_input("Force (N)", value=0.0, format="%.2e")
-    with col2:
         q1 = st.number_input("Charge 1 (C)", value=0.0, format="%.2e")
-    with col3:
+    with col2:
         q2 = st.number_input("Charge 2 (C)", value=0.0, format="%.2e")
-    with col4:
-        r = st.number_input("Distance (m)", value=0.0, format="%.2e")
-
-    f_val = f if f != 0.0 else None
-    q1_val = q1 if q1 != 0.0 else None
-    q2_val = q2 if q2 != 0.0 else None
-    r_val = r if r != 0.0 else None
+    with col3:
+        rad = st.number_input("Distance (m)", value=0.0, format="%.2e")
 
     if st.button("Calculate"):
         try:
-            result = calculate_coulombs_law(force=f_val, charge1=q1_val, charge2=q2_val, distance=r_val)
+            coulomb_res = calculate_coulombs_law(q1=q1, q2=q2, r=rad)
             st.success("Result:")
-            st.json(result)
+            st.json(coulomb_res)
         except Exception as e:
             st.error(str(e))
 
@@ -142,22 +132,16 @@ elif page == "Capacitance Charge":
     st.header("Capacitance Charge Calculator")
     st.markdown("`Q = C × V`")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
-        q = st.number_input("Charge (C)", value=0.0, format="%.2e")
-    with col2:
         c = st.number_input("Capacitance (F)", value=0.0, format="%.2e")
-    with col3:
+    with col2:
         v = st.number_input("Voltage (V)", value=0.0, format="%.2e")
-
-    q_val = q if q != 0.0 else None
-    c_val = c if c != 0.0 else None
-    v_val = v if v != 0.0 else None
 
     if st.button("Calculate"):
         try:
-            result = calculate_charge(charge=q_val, capacitance=c_val, voltage=v_val)
+            charge_res = calculate_charge(capacitance=c, voltage=v)
             st.success("Result:")
-            st.json(result)
+            st.json(charge_res)
         except Exception as e:
             st.error(str(e))
