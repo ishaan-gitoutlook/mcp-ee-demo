@@ -6,6 +6,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["mcp[cli]>=1.0.0,<2.0.0"]
 
+[project.optional-dependencies]
+ui = ["streamlit>=1.30.0"]
+
 [dependency-groups]
 dev = [
   "pytest>=8.0.0",

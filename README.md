@@ -43,6 +43,21 @@ To run the MCP server using standard input/output (which is how AI clients will 
 uv run python -m ee_mcp_demo.server
 ```
 
+## How to Run the Web UI
+We also provide an interactive web application built with **Streamlit** that uses the same core calculations. 
+
+To install the optional UI dependencies:
+```bash
+uv sync --all-extras
+```
+
+To launch the web interface:
+```bash
+make ui
+# or
+uv run streamlit run src/ee_mcp_demo/ui/app.py
+```
+
 ---
 
 ## Enterprise Architecture

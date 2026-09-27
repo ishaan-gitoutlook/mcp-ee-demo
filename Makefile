@@ -19,3 +19,6 @@ check: format lint typecheck test
 
 run:
 	uv run mcp dev src/ee_mcp_demo/server.py
+
+ui:
+	uv run streamlit run src/ee_mcp_demo/ui/app.py
