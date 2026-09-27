@@ -1,12 +1,12 @@
 import streamlit as st
 
 from ee_mcp_demo.core.calculations import (
-    calc_charge,
-    calc_coulombs_law,
-    calc_electrical_power,
-    calc_ohms_law,
-    calc_parallel_resistance,
-    calc_series_resistance,
+    calculate_charge,
+    calculate_coulombs_law,
+    calculate_electrical_power,
+    calculate_ohms_law,
+    calculate_parallel_resistance,
+    calculate_series_resistance,
 )
 from ee_mcp_demo.core.exceptions import InvalidParameterError, MissingParameterError
 
