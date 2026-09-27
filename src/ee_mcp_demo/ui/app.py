@@ -49,7 +49,7 @@ if page == "Ohm's Law":
 
     if st.button("Calculate"):
         try:
-            result = calc_ohms_law(voltage=v_val, current=i_val, resistance=r_val)
+            result = calculate_ohms_law(voltage=v_val, current=i_val, resistance=r_val)
             st.success("Result:")
             st.json(result)
         except (MissingParameterError, InvalidParameterError) as e:
@@ -63,7 +63,7 @@ elif page == "Series Resistance":
     if st.button("Calculate"):
         try:
             r_list = [float(x.strip()) for x in r_input.split(",") if x.strip()]
-            result = calc_series_resistance(r_list)
+            result = calculate_series_resistance(r_list)
             st.success("Result:")
             st.json(result)
         except ValueError:
@@ -79,7 +79,7 @@ elif page == "Parallel Resistance":
     if st.button("Calculate"):
         try:
             r_list = [float(x.strip()) for x in r_input.split(",") if x.strip()]
-            result = calc_parallel_resistance(r_list)
+            result = calculate_parallel_resistance(r_list)
             st.success("Result:")
             st.json(result)
         except ValueError:
@@ -105,7 +105,7 @@ elif page == "Electrical Power":
 
     if st.button("Calculate"):
         try:
-            result = calc_electrical_power(power=p_val, voltage=v_val, current=i_val)
+            result = calculate_electrical_power(power=p_val, voltage=v_val, current=i_val)
             st.success("Result:")
             st.json(result)
         except Exception as e:
@@ -132,7 +132,7 @@ elif page == "Coulomb's Law":
 
     if st.button("Calculate"):
         try:
-            result = calc_coulombs_law(force=f_val, charge1=q1_val, charge2=q2_val, distance=r_val)
+            result = calculate_coulombs_law(force=f_val, charge1=q1_val, charge2=q2_val, distance=r_val)
             st.success("Result:")
             st.json(result)
         except Exception as e:
@@ -156,7 +156,7 @@ elif page == "Capacitance Charge":
 
     if st.button("Calculate"):
         try:
-            result = calc_charge(charge=q_val, capacitance=c_val, voltage=v_val)
+            result = calculate_charge(charge=q_val, capacitance=c_val, voltage=v_val)
             st.success("Result:")
             st.json(result)
         except Exception as e:

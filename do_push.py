@@ -12,7 +12,7 @@ except Exception as e:
     exit(1)
 
 subprocess.run(["git", "add", "."], check=True)
-subprocess.run(["git", "commit", "-m", "feat: Add Streamlit Web UI module"], capture_output=True)
+subprocess.run(["git", "commit", "-m", "fix: correct function names in UI app"], capture_output=True)
 
 res = subprocess.run(["git", "remote", "get-url", "origin"], capture_output=True, text=True, check=True)
 clone_url = res.stdout.strip()
