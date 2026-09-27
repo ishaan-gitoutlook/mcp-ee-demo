@@ -67,6 +67,7 @@ This project is structured following Enterprise Python standards for maintainabi
 ```text
 mcp-ee-demo/
 ├── .github/workflows/ci.yml       # Automated CI/CD pipelines
+├── docs/                          # Architecture plans and walkthroughs
 ├── Makefile                       # Developer commands (make check, make test)
 ├── pyproject.toml                 # Package definition and tool config (ruff, mypy)
 ├── tests/                         # Unit tests covering all logic and MCP handlers
@@ -77,10 +78,12 @@ mcp-ee-demo/
     │   ├── calculations.py        # Electrical engineering formulas
     │   ├── exceptions.py          # Custom domain exceptions
     │   └── logger.py              # Centralized logging configuration
-    └── mcp_handlers/              # API / Presentation Layer
-        ├── prompts.py             # Registered MCP Prompts
-        ├── resources.py           # Registered MCP Resources
-        └── tools.py               # Registered MCP Tools
+    ├── mcp_handlers/              # API / Presentation Layer
+    │   ├── prompts.py             # Registered MCP Prompts
+    │   ├── resources.py           # Registered MCP Resources
+    │   └── tools.py               # Registered MCP Tools
+    └── ui/                        # Web Interface Layer
+        └── app.py                 # Streamlit application dashboard
 ```
 
 ### Developer Commands
