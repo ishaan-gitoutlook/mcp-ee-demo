@@ -1,5 +1,5 @@
 [project]
-name = "ee-mcp-demo"
+name = "mcp-circuit-sandbox"
 version = "0.1.0"
 description = "A beginner-friendly MCP server for electrical engineering calculations"
 readme = "README.md"
@@ -9,14 +9,43 @@ dependencies = ["mcp[cli]>=1.0.0,<2.0.0"]
 [dependency-groups]
 dev = [
   "pytest>=8.0.0",
-  "pytest-asyncio>=0.24.0"
+  "pytest-asyncio>=0.24.0",
+  "ipykernel",
+  "ipywidgets",
+  "ruff>=0.3.0",
+  "mypy>=1.9.0",
+  "pre-commit>=3.7.0",
 ]
 
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project.scripts]
-ee-mcp-server = "ee_mcp_demo.server:main"
+mcp-circuit-sandbox = "ee_mcp_demo.server:main"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-q"
 asyncio_mode = "auto"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ee_mcp_demo"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "N", "B", "A", "C4", "SIM", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true

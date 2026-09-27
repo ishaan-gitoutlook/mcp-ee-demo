@@ -7,7 +7,7 @@ from mcp.client.stdio import stdio_client
 
 
 @pytest.mark.asyncio
-async def test_server_works_over_stdio():
+async def test_server_works_over_stdio() -> None:
     env = os.environ.copy()
     env["PYTHONPATH"] = "src"
     parameters = StdioServerParameters(
@@ -24,7 +24,7 @@ async def test_server_works_over_stdio():
                 "calculate_series_resistance",
             }
             resource = await session.read_resource("ee://laws/ohms-law")
-            assert "V = I A- R" in str(resource.contents[0])
+            assert "V = I × R" in str(resource.contents[0])
             result = await session.call_tool(
                 "calculate_ohms_law",
                 {"voltage": 9, "resistance": 3},
