@@ -30,6 +30,19 @@ You can use the `calculate_ohms_law` tool to solve for **Current (I)**:
 ## Getting Started
 Please see the [TUTORIAL.ipynb](./TUTORIAL.ipynb) for a step-by-step interactive guide on how to install, test, and use this MCP server.
 
+## How to Run the Server
+This project is built using `uv` for package management and `FastMCP`.
+
+To run the MCP Inspector (a web-based UI for testing your MCP tools, resources, and prompts):
+```bash
+uv run mcp dev src/ee_mcp_demo/server.py
+```
+
+To run the MCP server using standard input/output (which is how AI clients will typically connect to it):
+```bash
+uv run python -m ee_mcp_demo.server
+```
+
 ---
 
 ## Enterprise Architecture
